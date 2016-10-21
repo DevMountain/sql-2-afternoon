@@ -22,7 +22,7 @@ Select a.Name, b.Name from someTable a join anotherTable b on a.someid=b.someid
 Select a.Name, b.Name from someTable a join anotherTable b on a.someid=b.someid where b.email='e@mail.com'
 ```
 
-* Get all invoices where the quantity on the invoice line is greater than 1
+* Get all invoices where the unit price on the invoice line is greater than $0.99
 * Get all invoices and show me their invoice date, customer first and last names, and total
 
 * Get all customers and show me their first name, last name, and support rep first name and last name (support reps are on the Employees table)
