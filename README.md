@@ -63,9 +63,9 @@ Select Name, email from athlete where athleteId in (select personId from pieEate
 
 __Examples__
 ```
-Update [Table] set [column1]=[value1], [column2]=[value2] where [Condition]
+Update [Table] (column1, column2, etc) values (value1, value2, etc) where [Condition]
 
-Update Athletes set sport='Picklball' where sport='pockleball'
+Update Athletes (sport) values ('Pickleball') where sport='pockleball'
 ```
 
 * Find all customers with fax numbers and set those numbers to null
