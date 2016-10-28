@@ -51,7 +51,7 @@ Select [Column names] from [Table] where columnId in (select columnId from [Tabl
 Select Name, email from athlete where athleteId in (select personId from pieEaters where flavor='Apple')
 ```
 
-* Get all invoices where the quantity on the invoice line is greater than 1
+* Get all invoices where the unit price on the invoice line is greater than $0.99
 * Get all Playlist Tracks where the playlist name is Music
 * Get all Tracknames for playlistId 5
 * Get all tracks where the genre is comedy
