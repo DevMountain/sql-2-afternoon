@@ -524,6 +524,7 @@ DELETE FROM [Table] WHERE [Condition]
       ```
 
       </details>
+2. Test
 
 ### Solution
 
