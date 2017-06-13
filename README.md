@@ -29,15 +29,15 @@ SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.somei
 
 <br />
 
-1. Get all invoices where the total is greater than $0.99.
-2. Get the invoice date, customer first and last names, and total from all invoices.
-3. Get the first name, last name, and support rep's first name and last name from all customers. 
+1. Get all invoices where the `UnitPrice` on the `InvoiceLine` is greater than $0.99.
+2. Get the `InvoiceDate`, customer `FirstName` and `LastName`, and `Total` from all invoices.
+3. Get the customer `FirstName` and `LastName` and the support rep's `FirstName` and `LastName` from all customers. 
     * Support reps are on the Employee table.
-4. Get the album title and the artist name from all albums.
-5. Get all Playlist Tracks where the playlist name is Music.
-6. Get all Tracknames for playlistId 5.
-7. Now we want all tracknames and the playlist name that they're on ( 2 joins ).
-8. Get all Tracks that are alternative and show me the track name and the album name ( 2 joins ).
+4. Get the album `Title` and the artist `Name` from all albums.
+5. Get all Playlist Tracks where the playlist `Name` is Music.
+6. Get all Track `Name`s for `PlaylistId` 5.
+7. Get all Track `Name`s and the playlist `Name` that they're on ( 2 joins ).
+8. Get all Track `Name`s and Album `Title`s that are `"Alternative"` ( 2 joins ).
 
 ### Solution
 
@@ -62,7 +62,7 @@ JOIN InvoiceLine il ON il.UnitPrice > 0.99;
 <summary> <code> #2 </code> </summary>
 
 ```sql
-SELECT i.InvoiceDate, c.firstName, c.lastName, i.Total
+SELECT i.InvoiceDate, c.FirstName, c.LastName, i.Total
 FROM Invoice i
 JOIN Customer c ON i.CustomerId = c.CustomerId;
 ```
@@ -177,7 +177,7 @@ SELECT Name, Email FROM Athlete WHERE AthleteId IN ( SELECT PersonId FROM PieEat
 
 1. Get all invoices where the `UnitPrice` on the `InvoiceLine` is greater than $0.99.
 2. Get all Playlist Tracks where the playlist name is Music.
-3. Get all Track names for `playlistId` 5.
+3. Get all Track names for `PlaylistId` 5.
 4. Get all tracks where the `Genre` is Comedy.
 5. Get all tracks where the `Album` is Fireball.
 6. Get all tracks for the artist Queen ( 2 nested subqueries ).
