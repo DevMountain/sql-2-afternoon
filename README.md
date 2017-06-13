@@ -268,22 +268,84 @@ WHERE AlbumId IN (
 
 ## Practice updating Rows
 
-__Examples__
+### Instructions
+
+<details>
+
+<summary> <code> Syntax Hint </code> </summary>
+
+```sql
+UPDATE [Table] SET [column1] = [value1], [column2] = [value2] WHERE [Condition]
+
+UPDATE Athletes SET sport = 'Picklball' WHERE sport = 'pockleball'
 ```
-Update [Table] set [column1]=[value1], [column2]=[value2] where [Condition]
 
-Update Athletes set sport='Picklball' where sport='pockleball'
+</details>
+
+1. Find all customers with fax numbers and set those numbers to null
+2. Find all customers with no company (null) and set their company to self
+3. Find the customer `Julia Barnett` and change her last name to `Thompson`
+4. Find the customer with this email `luisrojas@yahoo.cl` and change his support rep to rep 4
+5. Find all tracks that are of the genre `Metal` and that have no composer and set the composer to be 'The darkness around us'
+6. Refresh your page to remove all database changes.
+
+### Solution
+
+<details>
+
+<summary> <code> SQL Solutions </code> </summary>
+
+<details>
+
+<summary> <code> #1 </code> </summary>
+
+```sql
+
 ```
 
-* Find all customers with fax numbers and set those numbers to null
-* Find all customers with no company (null) and set their company to self
-* Find the customer `Julia Barnett` and change her last name to `Thompson`
-* Find the customer with this email `luisrojas@yahoo.cl` and change his support rep to rep 4
+</details>
 
-* Find all tracks that are of the genre `Metal` and that have no composer and set the composer to be 'The darkness around us'
+<details>
 
+<summary> <code> #2 </code> </summary>
 
-Once you're done with all of those refresh your page to blow away your changes to the database!
+```sql
+
+```
+
+</details>
+
+<details>
+
+<summary> <code> #3 </code> </summary>
+
+```sql
+
+```
+
+</details>
+
+<details>
+
+<summary> <code> #4 </code> </summary>
+
+```sql
+
+```
+
+</details>
+
+<details>
+
+<summary> <code> #5 </code> </summary>
+
+```sql
+
+```
+
+</details>
+
+</details>
 
 ## Group by
 
