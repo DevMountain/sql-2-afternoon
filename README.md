@@ -509,9 +509,9 @@ DELETE FROM [Table] WHERE [Condition]
 
 <br />
 
-1. Remove all pop tracks from the tracks table
-2. Remove all tracks by `Santana`
-3. Remove all of the rest of the tracks, yes all of them.
+1. Remove all pop tracks from the `Track` table.
+2. Remove all tracks by `Santana` from the `Track`.
+3. Remove the rest of the tracks from the `Track`.
 4. Refresh your browser to remove all database changes.
 
 ### Solution
@@ -525,7 +525,9 @@ DELETE FROM [Table] WHERE [Condition]
 <summary> <code> #1 </code> </summary>
 
 ```sql
-
+DELETE 
+FROM Track 
+WHERE GenreId = ( SELECT GenreId FROM Genre WHERE Name = "Pop" );
 ```
 
 </details>
@@ -535,7 +537,9 @@ DELETE FROM [Table] WHERE [Condition]
 <summary> <code> #2 </code> </summary>
 
 ```sql
-
+DELETE
+FROM Track
+WHERE AlbumId = ( SELECT AlbumId FROM Artist WHERE Name = "Santana" );
 ```
 
 </details>
@@ -545,7 +549,8 @@ DELETE FROM [Table] WHERE [Condition]
 <summary> <code> #3 </code> </summary>
 
 ```sql
-
+DELETE
+FROM Track;
 ```
 
 </details>
@@ -553,38 +558,35 @@ DELETE FROM [Table] WHERE [Condition]
 </details>
 
 
-## eCommerce simulation
+## eCommerce Simulation
 
-Let's simulate an e-commerce site.  We're going to need users, products, and orders.
+### Summary
 
-Users need a name and an email.
-Products need a name and a price
-Orders need a ref to product.
-All 3 need primary keys.
+Let's simulate an e-commerce site. We're going to need users, products, and orders.
 
-Add some data to fill up each table (write down your schema since you won't see it on the side).  You'll need to insert products before you can link them.
+* Users need a name and an email.
+* Products need a name and a price
+* Orders need a ref to product.
+* All 3 need primary keys.
 
-Add 2 users, multiple products and multiple orders.
+### Instructions
 
-Run some queries against your data: 
+* Create 3 tables following the criteria in the summary.
+* Add some data to fill up each table.
+  * At least 3 users, 3 products, 3 orders.
+* Run queries against your data.
+  * Get all products for the first order.
+  * Get all orders.
+  * Get the total cost of an order ( sum the price of all products on an order ).
+* Add a foreign key reference from Orders to Users.
+* Update the Orders table to link a user to each order.
+* Run queries against your data.
+  * Get all orders for a user.
+  * Get how many orders each user has.
 
-* Get all products for the first order
-* Get all orders
-* Get the total cost of an order (sum the price of all products on an order)
+### Black Diamond
 
-## Add foreign key to existing table
-
-Orders have products, but someone needs to place the order.
-
-Add a ref from Orders to Users.  
-Add some users.
-Update the Orders table to link the a user to each order.
-
-Run some queries against your data:
-
-* Get all orders for a user
-* Get how many orders each user has
-* __Black Diamond:__ Get the total spend on all orders for each user
+* Get the total amount on all orders for each user.
 
 ## Contributions
 
