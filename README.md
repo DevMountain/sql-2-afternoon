@@ -29,7 +29,7 @@ SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.somei
 
 <br />
 
-1. Get all invoices where the unit price on the invoice line is greater than $0.99.
+1. Get all invoices where the total is greater than $0.99.
 2. Get the invoice date, customer first and last names, and total from all invoices.
 3. Get the first name, last name, and support rep's first name and last name from all customers. 
     * Support reps are on the Employee table.
@@ -50,7 +50,10 @@ SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.somei
 <summary> <code> #1 </code> </summary>
 
 ```sql
-
+SELECT *
+FROM Invoice i
+JOIN InvoiceLine il ON i.InvoiceId = il.InVoiceLineId
+WHERE il.UnitPrice > 0.99;
 ```
 
 </details>
@@ -60,7 +63,9 @@ SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.somei
 <summary> <code> #2 </code> </summary>
 
 ```sql
-
+SELECT i.InvoiceDate, c.firstName, c.lastName, i.Total
+FROM Invoice i
+JOIN Customer c ON i.CustomerId = c.CustomerId;
 ```
 
 </details>
@@ -70,7 +75,9 @@ SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.somei
 <summary> <code> #3 </code> </summary>
 
 ```sql
-
+SELECT c.FirstName, c.LastName, e.FirstName, e.LastName
+FROM Customer c
+JOIN Employee e ON c.SupportRepId = e.EmployeeId;
 ```
 
 </details>
@@ -80,7 +87,9 @@ SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.somei
 <summary> <code> #4 </code> </summary>
 
 ```sql
-
+SELECT al.Title, ar.Name
+FROM Album al
+JOIN Artist ar ON al.ArtistId = ar.ArtistId;
 ```
 
 </details>
@@ -90,7 +99,9 @@ SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.somei
 <summary> <code> #5 </code> </summary>
 
 ```sql
-
+SELECT pt.TrackId
+FROM PlaylistTrack pt
+JOIN Playlist p ON p.Name = "Music";
 ```
 
 </details>
@@ -100,7 +111,9 @@ SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.somei
 <summary> <code> #6 </code> </summary>
 
 ```sql
-
+SELECT t.Name
+FROM Track t
+JOIN PlaylistTrack pt ON pt.PlaylistId = 5;
 ```
 
 </details>
@@ -110,7 +123,10 @@ SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.somei
 <summary> <code> #7 </code> </summary>
 
 ```sql
-
+SELECT t.name, p.Name
+FROM Track t
+JOIN PlaylistTrack pt ON t.TrackId = pt.TrackId
+JOIN Playlist p ON pt.PlaylistId = p.PlaylistId;
 ```
 
 </details>
@@ -120,7 +136,10 @@ SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.somei
 <summary> <code> #8 </code> </summary>
 
 ```sql
-
+SELECT t.Name, a.title
+FROM Track t
+JOIN Album a ON t.AlbumId = a.AlbumId
+JOIN Genre g ON g.Name = "Alternative";
 ```
 
 </details>
