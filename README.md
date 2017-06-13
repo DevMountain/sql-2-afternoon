@@ -472,6 +472,8 @@ FROM [Table];
 
 </details>
 
+<details>
+
 <summary> <code> #3 </code> </summary>
 
 ```sql
