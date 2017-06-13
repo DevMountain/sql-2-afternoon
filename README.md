@@ -433,9 +433,54 @@ GROUP BY al.ArtistId;
 
 ## Use Distinct
 
-* From the tracks table find a unique list of all composers
-* From the Invoice table find a unique list of all Billing postal codes
-* From the Customer table find a unique list of all companies 
+<details>
+
+<summary> <code> Syntax Hint </code> </summary>
+
+```sql
+SELECT DISTINCT [Column]
+FROM [Table];
+```
+
+</details>
+
+<br />
+
+1. From the `Track` table find a unique list of all composers.
+2. From the `Invoice` table find a unique list of all Billing postal codes.
+3. From the `Customer` table find a unique list of all companies.
+
+<details>
+
+<summary> <code> SQL Solutions </code> </summary>
+
+<details>
+
+<summary> <code> #1 </code> </summary>
+
+```sql
+
+```
+
+</details>
+
+<summary> <code> #2 </code> </summary>
+
+```sql
+
+```
+
+</details>
+
+<summary> <code> #3 </code> </summary>
+
+```sql
+
+```
+
+</details>
+
+</details>
 
 ## Delete Rows
 
