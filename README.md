@@ -34,10 +34,10 @@ SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.somei
 3. Get the first name, last name, and support rep's first name and last name from all customers. 
     * Support reps are on the Employee table.
 4. Get the album title and the artist name from all albums.
-5. Get all Playlist Tracks where the playlist name is Music
-6. Get all Tracknames for playlistId 5
-7. Now we want all tracknames and the playlist name that they're on (You'll have to use 2 joins)
-8. Get all Tracks that are alternative and show me the track name and the album name (2 joins)
+5. Get all Playlist Tracks where the playlist name is Music.
+6. Get all Tracknames for playlistId 5.
+7. Now we want all tracknames and the playlist name that they're on ( 2 joins ).
+8. Get all Tracks that are alternative and show me the track name and the album name ( 2 joins ).
 
 ### Solution
 
@@ -164,21 +164,23 @@ Complete the instructions without using any joins. Only use nested queries to co
 <summary> <code> Syntax Hint </code> </summary>
 
 ```sql
-SELECT [Column names] FROM [Table] WHERE ColumnId IN ( SELECT ColumnId FROM [Table2] WHERE [Condition] )
+SELECT [Column names] 
+FROM [Table] 
+WHERE ColumnId IN ( SELECT ColumnId FROM [Table2] WHERE [Condition] );
 
-SELECT Name, Email FROM Athlete WHERE AthleteId IN ( SELECT PersonId FROM PieEaters WHERE Flavor='Apple' )
+SELECT Name, Email FROM Athlete WHERE AthleteId IN ( SELECT PersonId FROM PieEaters WHERE Flavor='Apple' );
 ```
 
 </details>
 
 <br />
 
-1. Get all invoices where the unit price on the invoice line is greater than $0.99
-2. Get all Playlist Tracks where the playlist name is Music
-3. Get all Tracknames for playlistId 5
-4. Get all tracks where the genre is comedy
-5. Get all tracks where the album is Fireball
-6. Get all tracks for the artist queen Queen (2 nested subqueries)
+1. Get all invoices where the unit price on the invoice line is greater than $0.99.
+2. Get all Playlist Tracks where the playlist name is Music.
+3. Get all Tracknames for playlistId 5.
+4. Get all tracks where the genre is comedy.
+5. Get all tracks where the album is Fireball.
+6. Get all tracks for the artist queen Queen (2 nested subqueries).
 
 ### Solution
 
