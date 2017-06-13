@@ -381,8 +381,8 @@ GROUP BY [Column];
 <br />
 
 1. Find a count of how many tracks there are per genre.
-2. Find a count of all Tracks where the Genre is pop.
-3. Find a list of all artist and how many albums they have
+2. Find a count of how many tracks are the `"Pop"` genre.
+3. Find a list of all artists and how many albums they have.
 
 ### Solution
 
