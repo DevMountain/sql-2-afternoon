@@ -446,9 +446,9 @@ FROM [Table];
 
 <br />
 
-1. From the `Track` table find a unique list of all composers.
-2. From the `Invoice` table find a unique list of all Billing postal codes.
-3. From the `Customer` table find a unique list of all companies.
+1. From the `Track` table find a unique list of all `Composer`s.
+2. From the `Invoice` table find a unique list of all `BillingPostalCode`s.
+3. From the `Customer` table find a unique list of all `Company`s.
 
 <details>
 
@@ -459,7 +459,8 @@ FROM [Table];
 <summary> <code> #1 </code> </summary>
 
 ```sql
-
+SELECT DISTINCT Composer
+FROM Track;
 ```
 
 </details>
@@ -469,7 +470,8 @@ FROM [Table];
 <summary> <code> #2 </code> </summary>
 
 ```sql
-
+SELECT DISTINCT BillingPostalCode
+FROM Invoice;
 ```
 
 </details>
@@ -479,7 +481,8 @@ FROM [Table];
 <summary> <code> #3 </code> </summary>
 
 ```sql
-
+SELECT DISTINCT Company
+FROM Customer;
 ```
 
 </details>
