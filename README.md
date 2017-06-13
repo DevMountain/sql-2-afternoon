@@ -1,14 +1,12 @@
-# intermediate-sql-queries-afternoon
+<img src="https://devmounta.in/img/logowhiteblue.png" width="250" align="right">
 
-For today we will be practicing inserting and querying data using SQL.
+# Project Summary
 
-Here is a website that will let us write queries to interact with some data. http://jxs.me/chinook-web/
+In this project, we'll continue to use <a href="http://jxs.me/chinook-web/">Chinook</a> to practice joins, nested queries, updating rows, group by, distinct, and foreign keys.
 
-On the left are the Tables with their fields. The right is where we will be writing our queries. The bottom is where we will see our results.
+Any new tables or records that you add into the database will be removed after you refresh the page.
 
-Any new tables or records that we add into the database will be removed after you refresh the page. So if you're wondering where you data went, that may be why.
-
-Use www.sqlteaching.com or sqlbolt.com as resources for the missing keywords you'll need.
+Use <a href="www.sqlteaching.com">SQL Teaching</a> or <a href="www.sqlbolt.com">SQL Bolt</a> as resources for referencing on keywords you'll need.
 
 ## Practice joins
 
