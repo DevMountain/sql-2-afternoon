@@ -10,30 +10,122 @@ Use <a href="www.sqlteaching.com">SQL Teaching</a> or <a href="www.sqlbolt.com">
 
 ## Practice joins
 
-### Use at least one join for all of the following
+### Instructions
 
-__Examples__ 
+<details>
+
+<summary> <code> Syntax Hint </code> </summary>
+
+```sql
+SELECT [Column names] 
+FROM [Table] [abbv]
+JOIN [Table2] [abbv2] ON abbv.prop = abbv2.prop WHERE [Conditions];
+
+SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.someid;
+SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.someid WHERE b.email = 'e@mail.com';
 ```
-Select [Column names] from [Table] [abbv] join [Table2] [abbv2] on abbv.prop=abbv2.prop where [Conditions]
 
-Select a.Name, b.Name from someTable a join anotherTable b on a.someid=b.someid
-Select a.Name, b.Name from someTable a join anotherTable b on a.someid=b.someid where b.email='e@mail.com'
+</details>
+
+1. Get all invoices where the unit price on the invoice line is greater than $0.99.
+2. Get the invoice date, customer first and last names, and total from all invoices.
+3. Get the first name, last name, and support rep's first name and last name from all customers. 
+  * Support reps are on the Employee table.
+4. Get the album title and the artist name from all albums.
+5. Get all Playlist Tracks where the playlist name is Music
+6. Get all Tracknames for playlistId 5
+7. Now we want all tracknames and the playlist name that they're on (You'll have to use 2 joins)
+8. Get all Tracks that are alternative and show me the track name and the album name (2 joins)
+
+### Solution
+
+<details>
+
+<summary> <code> SQL Solutions </code> </summary>
+
+<details>
+
+<summary> <code> #1 </code> </summary>
+
+```sql
+
 ```
 
-* Get all invoices where the unit price on the invoice line is greater than $0.99
-* Get all invoices and show me their invoice date, customer first and last names, and total
+</details>
 
-* Get all customers and show me their first name, last name, and support rep first name and last name (support reps are on the Employees table)
+<details>
 
-* Get all Albums and show me the album title and the artist name
+<summary> <code> #2 </code> </summary>
 
-* Get all Playlist Tracks where the playlist name is Music
-* Get all Tracknames for playlistId 5
-* Now we want all tracknames and the playlist name that they're on (You'll have to use 2 joins)
+```sql
 
-* Get all Tracks that are alternative and show me the track name and the album name (2 joins)
+```
 
-#### Black Diamond :
+</details>
+
+<details>
+
+<summary> <code> #3 </code> </summary>
+
+```sql
+
+```
+
+</details>
+
+<details>
+
+<summary> <code> #4 </code> </summary>
+
+```sql
+
+```
+
+</details>
+
+<details>
+
+<summary> <code> #5 </code> </summary>
+
+```sql
+
+```
+
+</details>
+
+<details>
+
+<summary> <code> #6 </code> </summary>
+
+```sql
+
+```
+
+</details>
+
+<details>
+
+<summary> <code> #7 </code> </summary>
+
+```sql
+
+```
+
+</details>
+
+<details>
+
+<summary> <code> #8 </code> </summary>
+
+```sql
+
+```
+
+</details>
+
+</details>
+
+### Black Diamond
 
 * Get all tracks on the playlist(s) called Music and show their name, genre name, album name, and artist name (at least 5 joins)
 
