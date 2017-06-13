@@ -558,7 +558,7 @@ FROM Track;
 </details>
 
 
-## eCommerce Simulation
+## eCommerce Simulation - No Hints
 
 ### Summary
 
