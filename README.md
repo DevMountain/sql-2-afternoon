@@ -193,7 +193,9 @@ SELECT Name, Email FROM Athlete WHERE AthleteId IN ( SELECT PersonId FROM PieEat
 <summary> <code> #1 </code> </summary>
 
 ```sql
-
+SELECT *
+FROM Invoice
+WHERE InvoiceId IN ( SELECT InvoiceId FROM InvoiceLine WHERE UnitPrice > 0.99 );
 ```
 
 </details>
@@ -203,7 +205,9 @@ SELECT Name, Email FROM Athlete WHERE AthleteId IN ( SELECT PersonId FROM PieEat
 <summary> <code> #2 </code> </summary>
 
 ```sql
-
+SELECT *
+FROM PlaylistTrack
+WHERE PlaylistId = ( SELECT PlaylistId FROM Playlist WHERE Name = "Music" );
 ```
 
 </details>
@@ -213,7 +217,9 @@ SELECT Name, Email FROM Athlete WHERE AthleteId IN ( SELECT PersonId FROM PieEat
 <summary> <code> #3 </code> </summary>
 
 ```sql
-
+SELECT Name
+FROM Track
+WHERE TrackId IN ( SELECT TrackId FROM PlaylistTrack WHERE PlaylistId = 5 );
 ```
 
 </details>
@@ -223,7 +229,9 @@ SELECT Name, Email FROM Athlete WHERE AthleteId IN ( SELECT PersonId FROM PieEat
 <summary> <code> #4 </code> </summary>
 
 ```sql
-
+SELECT *
+FROM Track
+WHERE GenreId IN ( SELECT GenreId FROM Genre WHERE Name = "Comedy" );
 ```
 
 </details>
@@ -233,7 +241,9 @@ SELECT Name, Email FROM Athlete WHERE AthleteId IN ( SELECT PersonId FROM PieEat
 <summary> <code> #5 </code> </summary>
 
 ```sql
-
+SELECT *
+FROM Track
+WHERE AlbumId IN ( SELECT AlbumId FROM Album WHERE Title = "Fireball" );
 ```
 
 </details>
@@ -243,7 +253,13 @@ SELECT Name, Email FROM Athlete WHERE AthleteId IN ( SELECT PersonId FROM PieEat
 <summary> <code> #6 </code> </summary>
 
 ```sql
-
+SELECT *
+FROM Track
+WHERE AlbumId IN ( 
+  SELECT AlbumId FROM Album WHERE ArtistId IN ( 
+    SELECT ArtistId FROM Artist WHERE Name = "Queen" 
+  )
+); 
 ```
 
 </details>
