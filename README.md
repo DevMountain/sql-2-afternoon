@@ -275,20 +275,22 @@ WHERE AlbumId IN (
 <summary> <code> Syntax Hint </code> </summary>
 
 ```sql
-UPDATE [Table] SET [column1] = [value1], [column2] = [value2] WHERE [Condition]
+UPDATE [Table] 
+SET [column1] = [value1], [column2] = [value2] 
+WHERE [Condition];
 
-UPDATE Athletes SET sport = 'Picklball' WHERE sport = 'pockleball'
+UPDATE Athletes SET sport = 'Picklball' WHERE sport = 'pockleball';
 ```
 
 </details>
 
 <br />
 
-1. Find all customers with fax numbers and set those numbers to null
-2. Find all customers with no company (null) and set their company to self
-3. Find the customer `Julia Barnett` and change her last name to `Thompson`
-4. Find the customer with this email `luisrojas@yahoo.cl` and change his support rep to rep 4
-5. Find all tracks that are of the genre `Metal` and that have no composer and set the composer to be 'The darkness around us'
+1. Find all customers with fax numbers and set those numbers to `null`.
+2. Find all customers with no company (null) and set their company to `"Self"`.
+3. Find the customer `Julia Barnett` and change her last name to `Thompson`.
+4. Find the customer with this email `luisrojas@yahoo.cl` and change his support rep to `4`.
+5. Find all tracks that are the genre `Metal` and have no composer. Set the composer to be `"The darkness around us"`.
 6. Refresh your page to remove all database changes.
 
 ### Solution
@@ -302,7 +304,9 @@ UPDATE Athletes SET sport = 'Picklball' WHERE sport = 'pockleball'
 <summary> <code> #1 </code> </summary>
 
 ```sql
-
+UPDATE Customer
+SET Fax = null
+WHERE Fax IS NOT null;
 ```
 
 </details>
@@ -312,7 +316,9 @@ UPDATE Athletes SET sport = 'Picklball' WHERE sport = 'pockleball'
 <summary> <code> #2 </code> </summary>
 
 ```sql
-
+UPDATE Customer
+SET Company = "Self"
+WHERE Company IS null;
 ```
 
 </details>
@@ -322,7 +328,9 @@ UPDATE Athletes SET sport = 'Picklball' WHERE sport = 'pockleball'
 <summary> <code> #3 </code> </summary>
 
 ```sql
-
+UPDATE Customer 
+SET LastName = "Thompson" 
+WHERE FirstName = "Julia" AND LastName = "Barnett";
 ```
 
 </details>
@@ -332,7 +340,9 @@ UPDATE Athletes SET sport = 'Picklball' WHERE sport = 'pockleball'
 <summary> <code> #4 </code> </summary>
 
 ```sql
-
+UPDATE Customer
+SET SupportRepId = 4
+WHERE Email = "luisrojas@yahoo.cl";
 ```
 
 </details>
@@ -342,7 +352,10 @@ UPDATE Athletes SET sport = 'Picklball' WHERE sport = 'pockleball'
 <summary> <code> #5 </code> </summary>
 
 ```sql
-
+UPDATE Track
+SET Composer = "The darkness around us"
+WHERE GenreId = ( SELECT GenreId FROM Genre WHERE Name = "Metal" )
+AND Composer IS null;
 ```
 
 </details>
