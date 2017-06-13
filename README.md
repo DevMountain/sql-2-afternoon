@@ -497,7 +497,7 @@ Always do a select before a delete to make sure you get back exactly what you wa
 
 <details>
 
-<summary> <code> test_delete TABLE </code> </summary>
+<summary> <code> practice_delete TABLE </code> </summary>
 
 ```sql
 CREATE TABLE practice_delete ( Name string, Type string, Value integer );
