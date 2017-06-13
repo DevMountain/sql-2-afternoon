@@ -153,22 +153,98 @@ JOIN Genre g ON g.Name = "Alternative";
 
 ## Practice nested queries
 
-### Use no joins for the following queries.  Use only nested queries.
+### Summary
 
-__Examples__ 
+Complete the instructions without using any joins. Only use nested queries to come up with the solution.
+
+### Instructions
+
+<details>
+
+<summary> <code> Syntax Hint </code> </summary>
+
+```sql
+SELECT [Column names] FROM [Table] WHERE ColumnId IN ( SELECT ColumnId FROM [Table2] WHERE [Condition] )
+
+SELECT Name, Email FROM Athlete WHERE AthleteId IN ( SELECT PersonId FROM PieEaters WHERE Flavor='Apple' )
 ```
-Select [Column names] from [Table] where columnId in (select columnId from [Table2] where [Condition])
 
-Select Name, email from athlete where athleteId in (select personId from pieEaters where flavor='Apple')
+</details>
+
+1. Get all invoices where the unit price on the invoice line is greater than $0.99
+2. Get all Playlist Tracks where the playlist name is Music
+3. Get all Tracknames for playlistId 5
+4. Get all tracks where the genre is comedy
+5. Get all tracks where the album is Fireball
+6. Get all tracks for the artist queen Queen (2 nested subqueries)
+
+### Solution
+
+<details>
+
+<summary> <code> SQL Solutions </code> </summary>
+
+<details>
+
+<summary> <code> #1 </code> </summary>
+
+```sql
+
 ```
 
-* Get all invoices where the unit price on the invoice line is greater than $0.99
-* Get all Playlist Tracks where the playlist name is Music
-* Get all Tracknames for playlistId 5
-* Get all tracks where the genre is comedy
-* Get all tracks where the album is Fireball
-* Get all tracks for the artist queen Queen (2 nested subqueries)
+</details>
 
+<details>
+
+<summary> <code> #2 </code> </summary>
+
+```sql
+
+```
+
+</details>
+
+<details>
+
+<summary> <code> #3 </code> </summary>
+
+```sql
+
+```
+
+</details>
+
+<details>
+
+<summary> <code> #4 </code> </summary>
+
+```sql
+
+```
+
+</details>
+
+<details>
+
+<summary> <code> #5 </code> </summary>
+
+```sql
+
+```
+
+</details>
+
+<details>
+
+<summary> <code> #6 </code> </summary>
+
+```sql
+
+```
+
+</details>
+
+</details>
 
 ## Practice updating Rows
 
