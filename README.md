@@ -290,7 +290,7 @@ UPDATE Athletes SET sport = 'Picklball' WHERE sport = 'pockleball';
 2. Find all customers with no company (null) and set their company to `"Self"`.
 3. Find the customer `Julia Barnett` and change her last name to `Thompson`.
 4. Find the customer with this email `luisrojas@yahoo.cl` and change his support rep to `4`.
-5. Find all tracks that are the genre `Metal` and have no composer. Set the composer to be `"The darkness around us"`.
+5. Find all tracks that are the genre `Metal` and have no composer. Set the composer to `"The darkness around us"`.
 6. Refresh your page to remove all database changes.
 
 ### Solution
