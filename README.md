@@ -493,7 +493,28 @@ FROM Customer;
 
 ### Summary
 
-Always do a select before a delete to make sure you get back exactly what you want and only what you want to delete!
+Always do a select before a delete to make sure you get back exactly what you want and only what you want to delete! Since we cannot delete anything from the pre-defined tables ( foreign key restraints ), use the following SQL code to create a dummy table:
+
+<details>
+
+<summary> <code> test_delete TABLE </code> </summary>
+
+```sql
+CREATE TABLE practice_delete ( Name string, Type string, Value integer );
+INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "bronze", 50);
+INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "bronze", 50);
+INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "bronze", 50);
+INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "silver", 100);
+INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "silver", 100);
+INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "gold", 150);
+INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "gold", 150);
+INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "gold", 150);
+INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "gold", 150);
+
+SELECT * FROM practice_delete;
+```
+
+</details>
 
 ### Instructions
 
@@ -509,22 +530,10 @@ DELETE FROM [Table] WHERE [Condition]
 
 <br />
 
-1. Copy, paste, and run the following SQL code:
-    * <details>
-
-      <summary> <code> test_delete TABLE </summary>
-
-      ```sql
-      CREATE TABLE test_delete ( name string, type string, value integer );
-      INSERT INTO test_delete ( name, type, value ) VALUES ("delete", "bronze", 50);
-      INSERT INTO test_delete ( name, type, value ) VALUES ("delete", "silver", 100);
-      INSERT INTO test_delete ( name, type, value ) VALUES ("delete", "gold", 150);
-
-      SELECT * FROM test_delete;
-      ```
-
-      </details>
-2. Test
+1. Copy, paste, and run the SQL code from the summary.
+2. Delete all `"bronze"` entries from the table.
+3. Delete all `"silver"` entries from the table.
+4. Delete all entries whose value is equal to `150`.
 
 ### Solution
 
@@ -538,8 +547,8 @@ DELETE FROM [Table] WHERE [Condition]
 
 ```sql
 DELETE 
-FROM Track 
-WHERE GenreId = ( SELECT GenreId FROM Genre WHERE Name = "Pop" );
+FROM practice_delete 
+WHERE Type = "bronze";
 ```
 
 </details>
@@ -549,9 +558,9 @@ WHERE GenreId = ( SELECT GenreId FROM Genre WHERE Name = "Pop" );
 <summary> <code> #2 </code> </summary>
 
 ```sql
-DELETE
-FROM Track
-WHERE AlbumId = ( SELECT AlbumId FROM Artist WHERE Name = "Santana" );
+DELETE 
+FROM practice_delete 
+WHERE Type = "silver";
 ```
 
 </details>
@@ -561,8 +570,9 @@ WHERE AlbumId = ( SELECT AlbumId FROM Artist WHERE Name = "Santana" );
 <summary> <code> #3 </code> </summary>
 
 ```sql
-DELETE
-FROM Track;
+DELETE 
+FROM practice_delete 
+WHERE Value = 150;
 ```
 
 </details>
