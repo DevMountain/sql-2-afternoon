@@ -509,10 +509,21 @@ DELETE FROM [Table] WHERE [Condition]
 
 <br />
 
-1. Remove all pop tracks from the `Track` table.
-2. Remove all tracks by `Santana` from the `Track`.
-3. Remove the rest of the tracks from the `Track`.
-4. Refresh your browser to remove all database changes.
+1. Copy, paste, and run the following SQL code:
+    * <details>
+
+      <summary> <code> test_delete TABLE </summary>
+
+      ```sql
+      CREATE TABLE test_delete ( name string, type string, value integer );
+      INSERT INTO test_delete ( name, type, value ) VALUES ("delete", "bronze", 50);
+      INSERT INTO test_delete ( name, type, value ) VALUES ("delete", "silver", 100);
+      INSERT INTO test_delete ( name, type, value ) VALUES ("delete", "gold", 150);
+
+      SELECT * FROM test_delete;
+      ```
+
+      </details>
 
 ### Solution
 
