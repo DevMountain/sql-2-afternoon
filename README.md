@@ -175,12 +175,12 @@ SELECT Name, Email FROM Athlete WHERE AthleteId IN ( SELECT PersonId FROM PieEat
 
 <br />
 
-1. Get all invoices where the unit price on the invoice line is greater than $0.99.
+1. Get all invoices where the `UnitPrice` on the `InvoiceLine` is greater than $0.99.
 2. Get all Playlist Tracks where the playlist name is Music.
-3. Get all Tracknames for playlistId 5.
-4. Get all tracks where the genre is comedy.
-5. Get all tracks where the album is Fireball.
-6. Get all tracks for the artist queen Queen (2 nested subqueries).
+3. Get all Track names for `playlistId` 5.
+4. Get all tracks where the `Genre` is Comedy.
+5. Get all tracks where the `Album` is Fireball.
+6. Get all tracks for the artist Queen ( 2 nested subqueries ).
 
 ### Solution
 
