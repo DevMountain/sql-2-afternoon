@@ -364,9 +364,70 @@ AND Composer IS null;
 
 ## Group by
 
-* Find a count of how many tracks there are per genre
-* Find a count of all Tracks where the Genre is pop
-* Find a list of all artist and how many albums they have
+### Instructions
+
+<details>
+
+<summary> <code> Syntax Hint </code> </summary>
+
+```sql
+SELECT [Column1], [Column2]
+FROM [Table] [abbr]
+GROUP BY [Column];
+```
+
+</details>
+
+1. Find a count of how many tracks there are per genre.
+2. Find a count of all Tracks where the Genre is pop.
+3. Find a list of all artist and how many albums they have
+
+### Solution
+
+<details>
+
+<summary> <code> SQL Solutions </code> </summary>
+
+<details>
+
+<summary> <code> #1 </code> </summary>
+
+```sql
+SELECT Count(*), g.Name
+FROM Track t
+JOIN Genre g ON t.GenreId = g.GenreId
+GROUP BY g.Name;
+```
+
+</details>
+
+<details>
+
+<summary> <code> #2 </code> </summary>
+
+```sql
+SELECT Count(*), g.Name
+FROM Track t
+JOIN Genre g ON g.Name = "Pop"
+GROUP BY g.Name;
+```
+
+</details>
+
+<details>
+
+<summary> <code> #3 </code> </summary>
+
+```sql
+SELECT ar.Name, Count(*)
+FROM Artist ar
+JOIN Album al ON ar.ArtistId = al.ArtistId
+GROUP BY al.ArtistId;
+```
+
+</details>
+
+</details>
 
 ## Use Distinct
 
