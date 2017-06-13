@@ -171,6 +171,8 @@ SELECT Name, Email FROM Athlete WHERE AthleteId IN ( SELECT PersonId FROM PieEat
 
 </details>
 
+<br />
+
 1. Get all invoices where the unit price on the invoice line is greater than $0.99
 2. Get all Playlist Tracks where the playlist name is Music
 3. Get all Tracknames for playlistId 5
