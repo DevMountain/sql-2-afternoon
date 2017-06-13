@@ -32,7 +32,7 @@ SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.somei
 1. Get all invoices where the unit price on the invoice line is greater than $0.99.
 2. Get the invoice date, customer first and last names, and total from all invoices.
 3. Get the first name, last name, and support rep's first name and last name from all customers. 
-  * Support reps are on the Employee table.
+    * Support reps are on the Employee table.
 4. Get the album title and the artist name from all albums.
 5. Get all Playlist Tracks where the playlist name is Music
 6. Get all Tracknames for playlistId 5
