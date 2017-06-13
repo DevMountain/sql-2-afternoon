@@ -282,6 +282,8 @@ UPDATE Athletes SET sport = 'Picklball' WHERE sport = 'pockleball'
 
 </details>
 
+<br />
+
 1. Find all customers with fax numbers and set those numbers to null
 2. Find all customers with no company (null) and set their company to self
 3. Find the customer `Julia Barnett` and change her last name to `Thompson`
