@@ -491,14 +491,66 @@ FROM Customer;
 
 ## Delete Rows
 
+### Summary
+
 Always do a select before a delete to make sure you get back exactly what you want and only what you want to delete!
 
-* Remove all pop tracks from the tracks table
-* Remove all tracks by `Santana`
-* Remove all of the rest of the tracks, yes all of them.
+### Instructions
 
-Now refresh your browser to reset all your data
+<details>
 
+<summary> <code> Syntax Hint </code> </summary>
+
+```sql
+DELETE FROM [Table] WHERE [Condition]
+```
+
+</details>
+
+<br />
+
+1. Remove all pop tracks from the tracks table
+2. Remove all tracks by `Santana`
+3. Remove all of the rest of the tracks, yes all of them.
+4. Refresh your browser to remove all database changes.
+
+### Solution
+
+<details>
+
+<summary> <code> SQL Solutions </code> </summary>
+
+<details>
+
+<summary> <code> #1 </code> </summary>
+
+```sql
+
+```
+
+</details>
+
+<details>
+
+<summary> <code> #2 </code> </summary>
+
+```sql
+
+```
+
+</details>
+
+<details>
+
+<summary> <code> #3 </code> </summary>
+
+```sql
+
+```
+
+</details>
+
+</details>
 
 
 ## eCommerce simulation
