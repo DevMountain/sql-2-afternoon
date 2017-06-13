@@ -129,7 +129,7 @@ SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.somei
 
 ### Black Diamond
 
-* Get all tracks on the playlist(s) called Music and show their name, genre name, album name, and artist name (at least 5 joins)
+* Get all tracks on the playlist(s) called Music and show their name, genre name, album name, and artist name (5 joins).
 
 
 ## Practice nested queries
