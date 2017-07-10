@@ -17,7 +17,7 @@ Use <a href="www.sqlteaching.com">SQL Teaching</a> or <a href="www.sqlbolt.com">
 <summary> <code> Syntax Hint </code> </summary>
 
 ```sql
-SELECT [Column names] 
+SELECT [Column names]
 FROM [Table] [abbv]
 JOIN [Table2] [abbv2] ON abbv.prop = abbv2.prop WHERE [Conditions];
 
@@ -31,7 +31,7 @@ SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.somei
 
 1. Get all invoices where the `UnitPrice` on the `InvoiceLine` is greater than $0.99.
 2. Get the `InvoiceDate`, customer `FirstName` and `LastName`, and `Total` from all invoices.
-3. Get the customer `FirstName` and `LastName` and the support rep's `FirstName` and `LastName` from all customers. 
+3. Get the customer `FirstName` and `LastName` and the support rep's `FirstName` and `LastName` from all customers.
     * Support reps are on the Employee table.
 4. Get the album `Title` and the artist `Name` from all albums.
 5. Get all Playlist Tracks where the playlist `Name` is Music.
@@ -50,9 +50,10 @@ SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.somei
 <summary> <code> #1 </code> </summary>
 
 ```sql
-SELECT *
-FROM Invoice i
-JOIN InvoiceLine il ON il.UnitPrice > 0.99;
+SELECT * FROM invoice i
+JOIN InvoiceLine il
+ON il.InvoiceId = i.InvoiceId
+WHERE il.unitPrice > 0.99;
 ```
 
 </details>
@@ -112,7 +113,8 @@ JOIN Playlist p ON p.Name = "Music";
 ```sql
 SELECT t.Name
 FROM Track t
-JOIN PlaylistTrack pt ON pt.PlaylistId = 5;
+JOIN PlaylistTrack pt ON pt.trackId = t.trackId
+where pt.PlaylistId = 5;
 ```
 
 </details>
@@ -165,8 +167,8 @@ Complete the instructions without using any joins. Only use nested queries to co
 <summary> <code> Syntax Hint </code> </summary>
 
 ```sql
-SELECT [Column names] 
-FROM [Table] 
+SELECT [Column names]
+FROM [Table]
 WHERE ColumnId IN ( SELECT ColumnId FROM [Table2] WHERE [Condition] );
 
 SELECT Name, Email FROM Athlete WHERE AthleteId IN ( SELECT PersonId FROM PieEaters WHERE Flavor='Apple' );
@@ -256,11 +258,11 @@ WHERE AlbumId IN ( SELECT AlbumId FROM Album WHERE Title = "Fireball" );
 ```sql
 SELECT *
 FROM Track
-WHERE AlbumId IN ( 
-  SELECT AlbumId FROM Album WHERE ArtistId IN ( 
-    SELECT ArtistId FROM Artist WHERE Name = "Queen" 
+WHERE AlbumId IN (
+  SELECT AlbumId FROM Album WHERE ArtistId IN (
+    SELECT ArtistId FROM Artist WHERE Name = "Queen"
   )
-); 
+);
 ```
 
 </details>
@@ -276,8 +278,8 @@ WHERE AlbumId IN (
 <summary> <code> Syntax Hint </code> </summary>
 
 ```sql
-UPDATE [Table] 
-SET [column1] = [value1], [column2] = [value2] 
+UPDATE [Table]
+SET [column1] = [value1], [column2] = [value2]
 WHERE [Condition];
 
 UPDATE Athletes SET sport = 'Picklball' WHERE sport = 'pockleball';
@@ -329,8 +331,8 @@ WHERE Company IS null;
 <summary> <code> #3 </code> </summary>
 
 ```sql
-UPDATE Customer 
-SET LastName = "Thompson" 
+UPDATE Customer
+SET LastName = "Thompson"
 WHERE FirstName = "Julia" AND LastName = "Barnett";
 ```
 
@@ -547,8 +549,8 @@ DELETE FROM [Table] WHERE [Condition]
 <summary> <code> #1 </code> </summary>
 
 ```sql
-DELETE 
-FROM practice_delete 
+DELETE
+FROM practice_delete
 WHERE Type = "bronze";
 ```
 
@@ -559,8 +561,8 @@ WHERE Type = "bronze";
 <summary> <code> #2 </code> </summary>
 
 ```sql
-DELETE 
-FROM practice_delete 
+DELETE
+FROM practice_delete
 WHERE Type = "silver";
 ```
 
@@ -571,8 +573,8 @@ WHERE Type = "silver";
 <summary> <code> #3 </code> </summary>
 
 ```sql
-DELETE 
-FROM practice_delete 
+DELETE
+FROM practice_delete
 WHERE Value = 150;
 ```
 
