@@ -138,7 +138,8 @@ JOIN Playlist p ON pt.PlaylistId = p.PlaylistId;
 SELECT t.Name, a.title
 FROM Track t
 JOIN Album a ON t.AlbumId = a.AlbumId
-JOIN Genre g ON g.Name = "Alternative";
+JOIN Genre g ON g.GenreId = t.GenreId
+WHERE g.Name = "Alternative";
 ```
 
 </details>
