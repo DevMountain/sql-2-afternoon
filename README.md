@@ -52,7 +52,8 @@ SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.somei
 ```sql
 SELECT *
 FROM Invoice i
-JOIN InvoiceLine il ON il.UnitPrice > 0.99;
+JOIN InvoiceLine il ON i.InvoiceId = il.InvoiceId
+WHERE il.UnitPrice > 0.99;
 ```
 
 </details>
