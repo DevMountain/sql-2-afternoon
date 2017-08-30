@@ -34,10 +34,10 @@ SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.somei
 3. Get the customer `FirstName` and `LastName` and the support rep's `FirstName` and `LastName` from all customers. 
     * Support reps are on the Employee table.
 4. Get the album `Title` and the artist `Name` from all albums.
-5. Get all Playlist Tracks where the playlist `Name` is Music.
+5. Get all PlaylistTrack TrackIds where the playlist `Name` is Music.
 6. Get all Track `Name`s for `PlaylistId` 5.
 7. Get all Track `Name`s and the playlist `Name` that they're on ( 2 joins ).
-8. Get all Track `Name`s and Album `Title`s that are `"Alternative"` ( 2 joins ).
+8. Get all Track `Name`s and Album `Title`s that are the genre `"Alternative"` ( 2 joins ).
 
 ### Solution
 
@@ -101,7 +101,8 @@ JOIN Artist ar ON al.ArtistId = ar.ArtistId;
 ```sql
 SELECT pt.TrackId
 FROM PlaylistTrack pt
-JOIN Playlist p ON p.Name = "Music";
+JOIN Playlist p ON p.PlaylistId = pt.PlaylistId
+WHERE p.Name = 'Music';
 ```
 
 </details>
@@ -113,7 +114,8 @@ JOIN Playlist p ON p.Name = "Music";
 ```sql
 SELECT t.Name
 FROM Track t
-JOIN PlaylistTrack pt ON pt.PlaylistId = 5;
+JOIN PlaylistTrack pt ON pt.TrackId = t.TrackId
+WHERE pt.PlaylistId = 5;
 ```
 
 </details>
@@ -382,8 +384,8 @@ GROUP BY [Column];
 
 <br />
 
-1. Find a count of how many tracks there are per genre.
-2. Find a count of how many tracks are the `"Pop"` genre.
+1. Find a count of how many tracks there are per genre. Display the genre name with the count.
+2. Find a count of how many tracks are the `"Pop"` genre and how many tracks are the `"Rock"` genre.
 3. Find a list of all artists and how many albums they have.
 
 ### Solution
@@ -412,7 +414,8 @@ GROUP BY g.Name;
 ```sql
 SELECT Count(*), g.Name
 FROM Track t
-JOIN Genre g ON g.Name = "Pop"
+JOIN Genre g ON g.GenreId = t.GenreId
+WHERE g.Name = 'Pop' OR g.Name = 'Rock'
 GROUP BY g.Name;
 ```
 
