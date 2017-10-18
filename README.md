@@ -283,7 +283,7 @@ UPDATE [Table]
 SET [column1] = [value1], [column2] = [value2] 
 WHERE [Condition];
 
-UPDATE Athletes SET sport = 'Picklball' WHERE sport = 'pockleball';
+UPDATE Athletes SET sport = 'Pickleball' WHERE sport = 'pockleball';
 ```
 
 </details>
