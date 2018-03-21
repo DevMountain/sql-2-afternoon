@@ -211,7 +211,7 @@ WHERE InvoiceId IN ( SELECT InvoiceId FROM InvoiceLine WHERE UnitPrice > 0.99 );
 ```sql
 SELECT *
 FROM PlaylistTrack
-WHERE PlaylistId = ( SELECT PlaylistId FROM Playlist WHERE Name = "Music" );
+WHERE PlaylistId IN ( SELECT PlaylistId FROM Playlist WHERE Name = "Music" );
 ```
 
 </details>
