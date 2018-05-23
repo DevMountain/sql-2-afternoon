@@ -6,7 +6,7 @@ In this project, we'll continue to use <a href="http://jxs.me/chinook-web/">Chin
 
 Any new tables or records that you add into the database will be removed after you refresh the page.
 
-Use <a href="www.sqlteaching.com">SQL Teaching</a> or <a href="www.sqlbolt.com">SQL Bolt</a> as resources for referencing on keywords you'll need.
+Use <a href="http://www.sqlteaching.com">SQL Teaching</a> or <a href="http://www.sqlbolt.com">SQL Bolt</a> as resources for referencing on keywords you'll need.
 
 ## Practice joins
 
