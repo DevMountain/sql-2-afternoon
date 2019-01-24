@@ -2,7 +2,7 @@
 
 # Project Summary
 
-In this project, we'll continue to use <a href="http://jxs.me/chinook-web/">Chinook</a> to practice joins, nested queries, updating rows, group by, distinct, and foreign keys.
+In this project, we'll continue to use <a href="https://postgres.devmountain.com/">postgres.devmountain.com</a> to practice joins, nested queries, updating rows, group by, distinct, and foreign keys.
 
 Any new tables or records that you add into the database will be removed after you refresh the page.
 
@@ -18,26 +18,26 @@ Use <a href="http://www.sqlteaching.com">SQL Teaching</a> or <a href="http://www
 
 ```sql
 SELECT [Column names] 
-FROM [Table] [abbv]
-JOIN [Table2] [abbv2] ON abbv.prop = abbv2.prop WHERE [Conditions];
+FROM [table] [abbv]
+JOIN [table2] [abbv2] ON abbv.prop = abbv2.prop WHERE [Conditions];
 
-SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.someid;
-SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.someid WHERE b.email = 'e@mail.com';
+SELECT a.name, b.name FROM some_table a JOIN another_table b ON a.some_id = b.some_id;
+SELECT a.name, b.name FROM some_table a JOIN another_table b ON a.some_id = b.some_id WHERE b.email = 'e@mail.com';
 ```
 
 </details>
 
 <br />
 
-1. Get all invoices where the `UnitPrice` on the `InvoiceLine` is greater than $0.99.
-2. Get the `InvoiceDate`, customer `FirstName` and `LastName`, and `Total` from all invoices.
-3. Get the customer `FirstName` and `LastName` and the support rep's `FirstName` and `LastName` from all customers. 
-    * Support reps are on the Employee table.
-4. Get the album `Title` and the artist `Name` from all albums.
-5. Get all PlaylistTrack TrackIds where the playlist `Name` is Music.
-6. Get all Track `Name`s for `PlaylistId` 5.
-7. Get all Track `Name`s and the playlist `Name` that they're on ( 2 joins ).
-8. Get all Track `Name`s and Album `Title`s that are the genre `"Alternative"` ( 2 joins ).
+1. Get all invoices where the `unit_price` on the `invoice_line` is greater than $0.99.
+2. Get the `invoice_date`, customer `first_name` and `last_name`, and `total` from all invoices.
+3. Get the customer `first_name` and `last_name` and the support rep's `first_name` and `last_name` from all customers. 
+    * Support reps are on the employee table.
+4. Get the album `title` and the artist `name` from all albums.
+5. Get all playlist_track track_ids where the playlist `name` is Music.
+6. Get all track `name`s for `playlist_id` 5.
+7. Get all track `name`s and the playlist `name` that they're on ( 2 joins ).
+8. Get all track `name`s and album `title`s that are the genre `Alternative & Punk` ( 2 joins ).
 
 ### Solution
 
@@ -51,9 +51,9 @@ SELECT a.Name, b.Name FROM SomeTable a JOIN AnotherTable b ON a.someid = b.somei
 
 ```sql
 SELECT *
-FROM Invoice i
-JOIN InvoiceLine il ON il.invoiceId = i.invoiceId
-WHERE il.UnitPrice > 0.99;
+FROM invoice i
+JOIN invoice_line il ON il.invoice_id = i.invoice_id
+WHERE il.unit_price > 0.99;
 ```
 
 </details>
@@ -63,9 +63,9 @@ WHERE il.UnitPrice > 0.99;
 <summary> <code> #2 </code> </summary>
 
 ```sql
-SELECT i.InvoiceDate, c.FirstName, c.LastName, i.Total
-FROM Invoice i
-JOIN Customer c ON i.CustomerId = c.CustomerId;
+SELECT i.invoice_date, c.first_name, c.last_name, i.total
+FROM invoice i
+JOIN customer c ON i.customer_id = c.customer_id;
 ```
 
 </details>
@@ -75,9 +75,9 @@ JOIN Customer c ON i.CustomerId = c.CustomerId;
 <summary> <code> #3 </code> </summary>
 
 ```sql
-SELECT c.FirstName, c.LastName, e.FirstName, e.LastName
-FROM Customer c
-JOIN Employee e ON c.SupportRepId = e.EmployeeId;
+SELECT c.first_name, c.last_name, e.first_name, e.last_name
+FROM customer c
+JOIN employee e ON c.support_rep_id = e.employee_id;
 ```
 
 </details>
@@ -87,9 +87,9 @@ JOIN Employee e ON c.SupportRepId = e.EmployeeId;
 <summary> <code> #4 </code> </summary>
 
 ```sql
-SELECT al.Title, ar.Name
-FROM Album al
-JOIN Artist ar ON al.ArtistId = ar.ArtistId;
+SELECT al.title, ar.name
+FROM album al
+JOIN artist ar ON al.artist_id = ar.artist_id;
 ```
 
 </details>
@@ -99,10 +99,10 @@ JOIN Artist ar ON al.ArtistId = ar.ArtistId;
 <summary> <code> #5 </code> </summary>
 
 ```sql
-SELECT pt.TrackId
-FROM PlaylistTrack pt
-JOIN Playlist p ON p.PlaylistId = pt.PlaylistId
-WHERE p.Name = 'Music';
+SELECT pt.track_id
+FROM playlist_track pt
+JOIN playlist p ON p.playlist_id = pt.playlist_id
+WHERE p.name = 'Music';
 ```
 
 </details>
@@ -112,10 +112,10 @@ WHERE p.Name = 'Music';
 <summary> <code> #6 </code> </summary>
 
 ```sql
-SELECT t.Name
-FROM Track t
-JOIN PlaylistTrack pt ON pt.TrackId = t.TrackId
-WHERE pt.PlaylistId = 5;
+SELECT t.name
+FROM track t
+JOIN playlist_track pt ON pt.track_id = t.track_id
+WHERE pt.playlist_id = 5;
 ```
 
 </details>
@@ -125,10 +125,10 @@ WHERE pt.PlaylistId = 5;
 <summary> <code> #7 </code> </summary>
 
 ```sql
-SELECT t.name, p.Name
-FROM Track t
-JOIN PlaylistTrack pt ON t.TrackId = pt.TrackId
-JOIN Playlist p ON pt.PlaylistId = p.PlaylistId;
+SELECT t.name, p.name
+FROM track t
+JOIN playlist_track pt ON t.track_id = pt.track_id
+JOIN playlist p ON pt.playlist_id = p.playlist_id;
 ```
 
 </details>
@@ -138,11 +138,11 @@ JOIN Playlist p ON pt.PlaylistId = p.PlaylistId;
 <summary> <code> #8 </code> </summary>
 
 ```sql
-SELECT t.Name, a.title
-FROM Track t
-JOIN Album a ON t.AlbumId = a.AlbumId
-JOIN Genre g ON g.GenreId = t.GenreId
-WHERE g.Name = "Alternative";
+SELECT t.name, a.title
+FROM track t
+JOIN album a ON t.album_id = a.album_id
+JOIN genre g ON g.genre_id = t.genre_id
+WHERE g.name = 'Alternative & Punk';
 ```
 
 </details>
@@ -168,22 +168,22 @@ Complete the instructions without using any joins. Only use nested queries to co
 <summary> <code> Syntax Hint </code> </summary>
 
 ```sql
-SELECT [Column names] 
-FROM [Table] 
-WHERE ColumnId IN ( SELECT ColumnId FROM [Table2] WHERE [Condition] );
+SELECT [column names] 
+FROM [table] 
+WHERE column_id IN ( SELECT column_id FROM [table2] WHERE [Condition] );
 
-SELECT Name, Email FROM Athlete WHERE AthleteId IN ( SELECT PersonId FROM PieEaters WHERE Flavor='Apple' );
+SELECT name, Email FROM Athlete WHERE AthleteId IN ( SELECT PersonId FROM PieEaters WHERE Flavor='Apple' );
 ```
 
 </details>
 
 <br />
 
-1. Get all invoices where the `UnitPrice` on the `InvoiceLine` is greater than $0.99.
-2. Get all Playlist Tracks where the playlist name is Music.
-3. Get all Track names for `PlaylistId` 5.
-4. Get all tracks where the `Genre` is Comedy.
-5. Get all tracks where the `Album` is Fireball.
+1. Get all invoices where the `unit_price` on the `invoice_line` is greater than $0.99.
+2. Get all playlist tracks where the playlist name is Music.
+3. Get all track names for `playlist_id` 5.
+4. Get all tracks where the `genre` is Comedy.
+5. Get all tracks where the `album` is Fireball.
 6. Get all tracks for the artist Queen ( 2 nested subqueries ).
 
 ### Solution
@@ -198,8 +198,8 @@ SELECT Name, Email FROM Athlete WHERE AthleteId IN ( SELECT PersonId FROM PieEat
 
 ```sql
 SELECT *
-FROM Invoice
-WHERE InvoiceId IN ( SELECT InvoiceId FROM InvoiceLine WHERE UnitPrice > 0.99 );
+FROM invoice
+WHERE invoice_id IN ( SELECT invoice_id FROM invoice_line WHERE unit_price > 0.99 );
 ```
 
 </details>
@@ -210,8 +210,8 @@ WHERE InvoiceId IN ( SELECT InvoiceId FROM InvoiceLine WHERE UnitPrice > 0.99 );
 
 ```sql
 SELECT *
-FROM PlaylistTrack
-WHERE PlaylistId IN ( SELECT PlaylistId FROM Playlist WHERE Name = "Music" );
+FROM playlist_track
+WHERE playlist_id IN ( SELECT playlist_id FROM playlist WHERE name = 'Music' );
 ```
 
 </details>
@@ -221,9 +221,9 @@ WHERE PlaylistId IN ( SELECT PlaylistId FROM Playlist WHERE Name = "Music" );
 <summary> <code> #3 </code> </summary>
 
 ```sql
-SELECT Name
-FROM Track
-WHERE TrackId IN ( SELECT TrackId FROM PlaylistTrack WHERE PlaylistId = 5 );
+SELECT name
+FROM track
+WHERE track_id IN ( SELECT track_id FROM playlist_track WHERE playlist_id = 5 );
 ```
 
 </details>
@@ -234,8 +234,8 @@ WHERE TrackId IN ( SELECT TrackId FROM PlaylistTrack WHERE PlaylistId = 5 );
 
 ```sql
 SELECT *
-FROM Track
-WHERE GenreId IN ( SELECT GenreId FROM Genre WHERE Name = "Comedy" );
+FROM track
+WHERE genre_id IN ( SELECT genre_id FROM genre WHERE name = 'Comedy' );
 ```
 
 </details>
@@ -246,8 +246,8 @@ WHERE GenreId IN ( SELECT GenreId FROM Genre WHERE Name = "Comedy" );
 
 ```sql
 SELECT *
-FROM Track
-WHERE AlbumId IN ( SELECT AlbumId FROM Album WHERE Title = "Fireball" );
+FROM track
+WHERE album_id IN ( SELECT album_id FROM album WHERE title = 'Fireball' );
 ```
 
 </details>
@@ -258,10 +258,10 @@ WHERE AlbumId IN ( SELECT AlbumId FROM Album WHERE Title = "Fireball" );
 
 ```sql
 SELECT *
-FROM Track
-WHERE AlbumId IN ( 
-  SELECT AlbumId FROM Album WHERE ArtistId IN ( 
-    SELECT ArtistId FROM Artist WHERE Name = "Queen" 
+FROM track
+WHERE album_id IN ( 
+  SELECT album_id FROM album WHERE artist_id IN ( 
+    SELECT artist_id FROM artist WHERE name = 'Queen'
   )
 ); 
 ```
@@ -279,11 +279,11 @@ WHERE AlbumId IN (
 <summary> <code> Syntax Hint </code> </summary>
 
 ```sql
-UPDATE [Table] 
+UPDATE [table] 
 SET [column1] = [value1], [column2] = [value2] 
 WHERE [Condition];
 
-UPDATE Athletes SET sport = 'Picklball' WHERE sport = 'pockleball';
+UPDATE athletes SET sport = 'Picklball' WHERE sport = 'pockleball';
 ```
 
 </details>
@@ -308,9 +308,9 @@ UPDATE Athletes SET sport = 'Picklball' WHERE sport = 'pockleball';
 <summary> <code> #1 </code> </summary>
 
 ```sql
-UPDATE Customer
-SET Fax = null
-WHERE Fax IS NOT null;
+UPDATE customer
+SET fax = null
+WHERE fax IS NOT null;
 ```
 
 </details>
@@ -320,9 +320,9 @@ WHERE Fax IS NOT null;
 <summary> <code> #2 </code> </summary>
 
 ```sql
-UPDATE Customer
-SET Company = "Self"
-WHERE Company IS null;
+UPDATE customer
+SET company = 'Self'
+WHERE company IS null;
 ```
 
 </details>
@@ -332,9 +332,9 @@ WHERE Company IS null;
 <summary> <code> #3 </code> </summary>
 
 ```sql
-UPDATE Customer 
-SET LastName = "Thompson" 
-WHERE FirstName = "Julia" AND LastName = "Barnett";
+UPDATE customer 
+SET last_name = 'Thompson' 
+WHERE first_name = 'Julia' AND last_name = 'Barnett';
 ```
 
 </details>
@@ -344,9 +344,9 @@ WHERE FirstName = "Julia" AND LastName = "Barnett";
 <summary> <code> #4 </code> </summary>
 
 ```sql
-UPDATE Customer
-SET SupportRepId = 4
-WHERE Email = "luisrojas@yahoo.cl";
+UPDATE customer
+SET support_rep_id = 4
+WHERE email = 'luisrojas@yahoo.cl';
 ```
 
 </details>
@@ -356,10 +356,10 @@ WHERE Email = "luisrojas@yahoo.cl";
 <summary> <code> #5 </code> </summary>
 
 ```sql
-UPDATE Track
-SET Composer = "The darkness around us"
-WHERE GenreId = ( SELECT GenreId FROM Genre WHERE Name = "Metal" )
-AND Composer IS null;
+UPDATE track
+SET composer = 'The darkness around us'
+WHERE genre_id = ( SELECT genre_id FROM genre WHERE name = 'Metal' )
+AND composer IS null;
 ```
 
 </details>
@@ -375,9 +375,9 @@ AND Composer IS null;
 <summary> <code> Syntax Hint </code> </summary>
 
 ```sql
-SELECT [Column1], [Column2]
-FROM [Table] [abbr]
-GROUP BY [Column];
+SELECT [column1], [column2]
+FROM [table] [abbr]
+GROUP BY [column];
 ```
 
 </details>
@@ -399,10 +399,10 @@ GROUP BY [Column];
 <summary> <code> #1 </code> </summary>
 
 ```sql
-SELECT Count(*), g.Name
-FROM Track t
-JOIN Genre g ON t.GenreId = g.GenreId
-GROUP BY g.Name;
+SELECT COUNT(*), g.name
+FROM track t
+JOIN genre g ON t.genre_id = g.genre_id
+GROUP BY g.name;
 ```
 
 </details>
@@ -412,11 +412,11 @@ GROUP BY g.Name;
 <summary> <code> #2 </code> </summary>
 
 ```sql
-SELECT Count(*), g.Name
-FROM Track t
-JOIN Genre g ON g.GenreId = t.GenreId
-WHERE g.Name = 'Pop' OR g.Name = 'Rock'
-GROUP BY g.Name;
+SELECT COUNT(*), g.name
+FROM track t
+JOIN genre g ON g.genre_id = t.genre_id
+WHERE g.name = 'Pop' OR g.name = 'Rock'
+GROUP BY g.name;
 ```
 
 </details>
@@ -426,10 +426,10 @@ GROUP BY g.Name;
 <summary> <code> #3 </code> </summary>
 
 ```sql
-SELECT ar.Name, Count(*)
-FROM Artist ar
-JOIN Album al ON ar.ArtistId = al.ArtistId
-GROUP BY al.ArtistId;
+SELECT ar.name, COUNT(*)
+FROM album al
+JOIN artist ar ON ar.artist_id = al.artist_id
+GROUP BY ar.name;
 ```
 
 </details>
@@ -443,17 +443,17 @@ GROUP BY al.ArtistId;
 <summary> <code> Syntax Hint </code> </summary>
 
 ```sql
-SELECT DISTINCT [Column]
-FROM [Table];
+SELECT DISTINCT [column]
+FROM [cable];
 ```
 
 </details>
 
 <br />
 
-1. From the `Track` table find a unique list of all `Composer`s.
-2. From the `Invoice` table find a unique list of all `BillingPostalCode`s.
-3. From the `Customer` table find a unique list of all `Company`s.
+1. From the `track` table find a unique list of all `composer`s.
+2. From the `invoice` table find a unique list of all `billing_postal_code`s.
+3. From the `customer` table find a unique list of all `company`s.
 
 <details>
 
@@ -464,8 +464,8 @@ FROM [Table];
 <summary> <code> #1 </code> </summary>
 
 ```sql
-SELECT DISTINCT Composer
-FROM Track;
+SELECT DISTINCT composer
+FROM track;
 ```
 
 </details>
@@ -475,8 +475,8 @@ FROM Track;
 <summary> <code> #2 </code> </summary>
 
 ```sql
-SELECT DISTINCT BillingPostalCode
-FROM Invoice;
+SELECT DISTINCT billing_postal_code
+FROM invoice;
 ```
 
 </details>
@@ -486,8 +486,8 @@ FROM Invoice;
 <summary> <code> #3 </code> </summary>
 
 ```sql
-SELECT DISTINCT Company
-FROM Customer;
+SELECT DISTINCT company
+FROM customer;
 ```
 
 </details>
@@ -505,16 +505,16 @@ Always do a select before a delete to make sure you get back exactly what you wa
 <summary> <code> practice_delete TABLE </code> </summary>
 
 ```sql
-CREATE TABLE practice_delete ( Name string, Type string, Value integer );
-INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "bronze", 50);
-INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "bronze", 50);
-INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "bronze", 50);
-INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "silver", 100);
-INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "silver", 100);
-INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "gold", 150);
-INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "gold", 150);
-INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "gold", 150);
-INSERT INTO practice_delete ( Name, Type, Value ) VALUES ("delete", "gold", 150);
+CREATE TABLE practice_delete ( name TEXT, type TEXT, value INTEGER );
+INSERT INTO practice_delete ( name, type, value ) VALUES ('delete', 'bronze', 50);
+INSERT INTO practice_delete ( name, type, value ) VALUES ('delete', 'bronze', 50);
+INSERT INTO practice_delete ( name, type, value ) VALUES ('delete', 'bronze', 50);
+INSERT INTO practice_delete ( name, type, value ) VALUES ('delete', 'silver', 100);
+INSERT INTO practice_delete ( name, type, value ) VALUES ('delete', 'silver', 100);
+INSERT INTO practice_delete ( name, type, value ) VALUES ('delete', 'gold', 150);
+INSERT INTO practice_delete ( name, type, value ) VALUES ('delete', 'gold', 150);
+INSERT INTO practice_delete ( name, type, value ) VALUES ('delete', 'gold', 150);
+INSERT INTO practice_delete ( name, type, value ) VALUES ('delete', 'gold', 150);
 
 SELECT * FROM practice_delete;
 ```
@@ -528,7 +528,7 @@ SELECT * FROM practice_delete;
 <summary> <code> Syntax Hint </code> </summary>
 
 ```sql
-DELETE FROM [Table] WHERE [Condition]
+DELETE FROM [table] WHERE [condition]
 ```
 
 </details>
@@ -536,8 +536,8 @@ DELETE FROM [Table] WHERE [Condition]
 <br />
 
 1. Copy, paste, and run the SQL code from the summary.
-2. Delete all `"bronze"` entries from the table.
-3. Delete all `"silver"` entries from the table.
+2. Delete all `'bronze'` entries from the table.
+3. Delete all `'silver'` entries from the table.
 4. Delete all entries whose value is equal to `150`.
 
 ### Solution
@@ -553,7 +553,7 @@ DELETE FROM [Table] WHERE [Condition]
 ```sql
 DELETE 
 FROM practice_delete 
-WHERE Type = "bronze";
+WHERE type = 'bronze';
 ```
 
 </details>
@@ -565,7 +565,7 @@ WHERE Type = "bronze";
 ```sql
 DELETE 
 FROM practice_delete 
-WHERE Type = "silver";
+WHERE type = 'silver';
 ```
 
 </details>
@@ -577,7 +577,7 @@ WHERE Type = "silver";
 ```sql
 DELETE 
 FROM practice_delete 
-WHERE Value = 150;
+WHERE value = 150;
 ```
 
 </details>
@@ -591,9 +591,9 @@ WHERE Value = 150;
 
 Let's simulate an e-commerce site. We're going to need users, products, and orders.
 
-* Users need a name and an email.
-* Products need a name and a price
-* Orders need a ref to product.
+* users need a name and an email.
+* products need a name and a price
+* orders need a ref to product.
 * All 3 need primary keys.
 
 ### Instructions
@@ -605,8 +605,8 @@ Let's simulate an e-commerce site. We're going to need users, products, and orde
   * Get all products for the first order.
   * Get all orders.
   * Get the total cost of an order ( sum the price of all products on an order ).
-* Add a foreign key reference from Orders to Users.
-* Update the Orders table to link a user to each order.
+* Add a foreign key reference from orders to users.
+* Update the orders table to link a user to each order.
 * Run queries against your data.
   * Get all orders for a user.
   * Get how many orders each user has.
