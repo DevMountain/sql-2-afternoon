@@ -444,7 +444,7 @@ GROUP BY ar.name;
 
 ```sql
 SELECT DISTINCT [column]
-FROM [cable];
+FROM [table];
 ```
 
 </details>
