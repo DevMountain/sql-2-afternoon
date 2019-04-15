@@ -6,8 +6,6 @@ In this project, we'll continue to use <a href="https://postgres.devmountain.com
 
 Any new tables or records that you add into the database will be removed after you refresh the page.
 
-Use <a href="http://www.sqlteaching.com">SQL Teaching</a> or <a href="http://www.sqlbolt.com">SQL Bolt</a> as resources for referencing on keywords you'll need.
-
 ## Practice joins
 
 ### Instructions
@@ -614,6 +612,18 @@ Let's simulate an e-commerce site. We're going to need users, products, and orde
 ### Black Diamond
 
 * Get the total amount on all orders for each user.
+
+### Resources
+
+<details>
+
+<summary> <code> SQL </code> </summary>
+
+* [SQL Teaching](http://www.sqlteaching.com)
+* [SQL Bolt](http://www.sqlbolt.com)
+
+</details>
+
 
 ## Contributions
 
