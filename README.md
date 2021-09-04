@@ -425,8 +425,8 @@ GROUP BY g.name;
 
 ```sql
 SELECT ar.name, COUNT(*)
-FROM album al
-JOIN artist ar ON ar.artist_id = al.artist_id
+FROM artist ar
+JOIN album al ON ar.artist_id = al.artist_id
 GROUP BY ar.name;
 ```
 
